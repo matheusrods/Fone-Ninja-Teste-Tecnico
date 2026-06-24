@@ -1,0 +1,28 @@
+includes:
+    - vendor/larastan/larastan/extension.neon
+
+parameters:
+    paths:
+        - app
+    level: 5
+    reportUnmatchedIgnoredErrors: false
+    ignoreErrors:
+        # Sanctum currentAccessToken() - pode ser null com actingAs() em testes
+        - '#Strict comparison using !== between#'
+
+        # Colecao de relacionamentos tipada como Collection<Model> pelo PHPStan,
+        # mas passamos closures com tipos especificos (CompraItem, VendaItem).
+        # Falso positivo do @mixin nao propagar tipos genericos para HasMany.
+        - identifier: argument.type
+          path: app/Http/Resources/CompraResource.php
+        - identifier: argument.unresolvableType
+          path: app/Http/Resources/CompraResource.php
+        - identifier: property.notFound
+          path: app/Http/Resources/CompraResource.php
+
+        - identifier: argument.type
+          path: app/Http/Resources/VendaResource.php
+        - identifier: argument.unresolvableType
+          path: app/Http/Resources/VendaResource.php
+        - identifier: property.notFound
+          path: app/Http/Resources/VendaResource.php

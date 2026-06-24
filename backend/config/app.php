@@ -1,0 +1,17 @@
+<?php
+
+return [
+    'name' => env('APP_NAME', 'Fone Ninja'),
+    'env' => env('APP_ENV', 'production'),
+    'debug' => (bool) env('APP_DEBUG', false),
+    'url' => env('APP_URL', 'http://localhost'),
+    'timezone' => 'America/Sao_Paulo',
+    'locale' => 'pt_BR',
+    'fallback_locale' => 'pt_BR',
+    'faker_locale' => 'pt_BR',
+    'cipher' => 'AES-256-CBC',
+    'key' => env('APP_KEY'),
+    'maintenance' => [
+        'driver' => 'file',
+    ],
+];

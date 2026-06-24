@@ -1,0 +1,11 @@
+# Backend
+backend/vendor/
+backend/.env
+backend/storage/logs/*.log
+backend/bootstrap/cache/packages.php
+backend/bootstrap/cache/services.php
+backend/.phpunit.result.cache
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
